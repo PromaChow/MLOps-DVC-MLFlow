@@ -1,0 +1,9 @@
+[core]
+    remote = drive
+['remote "myremote"']
+    url = gdrive://1tdqbJMNKRCup1SPacTuoTtIh1sTQdv82
+    gdrive_acknowledge_abuse = true
+    gdrive_service_account_user_email = ab1502144@gmail.com
+['remote "drive"']
+    url = gdrive://1tdqbJMNKRCup1SPacTuoTtIh1sTQdv82
+    gdrive_acknowledge_abuse = true

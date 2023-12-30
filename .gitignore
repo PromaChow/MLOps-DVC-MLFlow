@@ -1,0 +1,21 @@
+/dummy_sensor_data.csv
+/data
+# .gitignore
+
+# DVC files and directories
+.dvc/
+/data/  # This assumes you store your data in a directory named 'data/'
+# MLflow files and directories
+mlruns/
+mlflow-*
+/models/
+
+# Other generated files
+*.pkl  # Pickle files
+*.joblib  # Joblib files
+*.model  # Model files
+*.log  # Log files
+
+# Ignore virtual environments
+venv/
+env/

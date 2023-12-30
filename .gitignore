@@ -4,11 +4,11 @@
 
 # DVC files and directories
 .dvc/
-/data/  # This assumes you store your data in a directory named 'data/'
+data/  # This assumes you store your data in a directory named 'data/'
 # MLflow files and directories
 mlruns/
 mlflow-*
-/models/
+models/
 
 # Other generated files
 *.pkl  # Pickle files
@@ -19,3 +19,5 @@ mlflow-*
 # Ignore virtual environments
 venv/
 env/
+__pycache__/
+

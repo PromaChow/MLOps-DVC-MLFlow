@@ -43,6 +43,7 @@ jobs:
 
       - name: Add and Push Data to Google Drive
         run: |
+          cat dummy_sensor_data.csv
           dvc add dummy_sensor_data.csv
           dvc push
 

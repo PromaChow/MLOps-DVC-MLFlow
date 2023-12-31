@@ -34,3 +34,5 @@ jobs:
       
       - name: Build the Docker image
         run: docker build . --file model-training/Dockerfile --tag abwqr/test-model:v1
+      - name: Docker push
+        run: docker push abwqr/test-model:v1

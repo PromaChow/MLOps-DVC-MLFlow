@@ -1,7 +1,7 @@
 version: '3'
 services:
   flask:
-    image: abwqr/flask-app:v3
+    image: abwqr/flask-app:v1
     ports:
       - 9000:9000
     networks:

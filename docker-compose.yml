@@ -1,0 +1,11 @@
+version: '3'
+services:
+  flask:
+    image: abwqr/flask-app:v3
+    ports:
+      - 9000:9000
+    networks:
+    - app1
+
+networks:
+  app1: {}

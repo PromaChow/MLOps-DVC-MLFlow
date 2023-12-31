@@ -32,7 +32,7 @@ for k in range_of_k :
             print("score:",score)
             best_model = trained_model
             best_silhouette_score = score
-            model_path = f"models/kmeans_model.pkl"
+            model_path = f"kmeans_model.pkl"
             joblib.dump(trained_model, model_path)
         mlflow.end_run()
 if best_model is not None:

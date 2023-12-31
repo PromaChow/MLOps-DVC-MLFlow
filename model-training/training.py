@@ -11,8 +11,8 @@ from sklearn.model_selection import cross_val_score
 import xgboost as xgb
 from sklearn.tree import DecisionTreeClassifier
 import sys
-train_data = pd.read_csv("data/sensor_data.csv")
-test_data = pd.read_csv("data/test_sensor_data.csv")
+train_data = pd.read_csv("../data/sensor_data.csv")
+test_data = pd.read_csv("../data/test_sensor_data.csv")
 
 # Load testing data from a file (replace 'test_file.csv' with your actual file name)
 

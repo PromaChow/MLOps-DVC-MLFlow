@@ -48,7 +48,9 @@ jobs:
       - name: Pull Data from Google Drive
         run: |
           dvc pull
-          python model-training/random_data.py testdata
+          cd model-training
+          python random_data.py testdata
+          cd ..
 
       - name: docker login
         env: 
@@ -58,8 +60,9 @@ jobs:
         
       - name: Run MLflow script
         run: |
+          cd model-training
           python model-training/training.py
-      
+          cd ..
       - name: Build the Model Docker image
         run: docker build . --file model-training/Dockerfile --tag abwqr/test-model:v1
       - name: Docker push

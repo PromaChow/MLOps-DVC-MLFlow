@@ -2,7 +2,7 @@
 FROM python:3.8-slim-buster
 
 # Copy requirements and install dependencies
-COPY requirements.txt .
+COPY flask-app/requirements.txt .
 RUN pip install -r requirements.txt
 
 # Set the working directory

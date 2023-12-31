@@ -44,7 +44,7 @@ jobs:
       - name: Pull Data from Google Drive
         run: |
           dvc pull
-          cat dummy_sensor_data.csv
+          cat data/dummy_sensor_data.csv
 
       # - name: docker login
       #   env: 

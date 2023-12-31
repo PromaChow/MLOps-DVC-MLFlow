@@ -48,3 +48,6 @@ if best_model is not None:
 # runs = client.search_runs(exp_id, "", order_by=["metrics.rmse DESC"], max_results=1)
 # best_run = runs[0]
 # print(best_run)
+# dvc-data@mlops-409810.iam.gserviceaccount.com
+# Client ID: 66578438081-5ito7q7qg8e1igpc74t9jk0taune5ia4.apps.googleusercontent.com
+# Customer PIN: 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

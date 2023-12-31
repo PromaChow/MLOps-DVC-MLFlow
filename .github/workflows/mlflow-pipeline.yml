@@ -35,7 +35,7 @@ jobs:
       - name: Configure DVC with Google Drive
         run: |
           dvc init
-          dvc remote add --default myremote gdrive://1jf41SolYpyZ275AVXH_7w4zhB2QzYVl_/Test
+          dvc remote add --default myremote gdrive://1tdqbJMNKRCup1SPacTuoTtIh1sTQdv82
           dvc remote modify myremote gdrive_acknowledge_abuse true
           dvc remote modify myremote gdrive_client_id 66578438081-5ito7q7qg8e1igpc74t9jk0taune5ia4.apps.googleusercontent.com
           dvc remote modify myremote gdrive_client_secret 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
@@ -43,7 +43,7 @@ jobs:
 
       - name: Add and Push Data to Google Drive
         run: |
-          dvc add dummy_sensor_data1.csv
+          dvc add dummy_sensor_data.csv
           dvc push
 
       # - name: docker login

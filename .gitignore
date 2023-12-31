@@ -3,7 +3,7 @@
 # .gitignore
 
 # DVC files and directories
-.dvc/
+# .dvc/
 # .dvcignore
 # *.dvc
 # data/  # This assumes you store your data in a directory named 'data/'

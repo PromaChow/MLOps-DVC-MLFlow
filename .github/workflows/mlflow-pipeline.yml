@@ -34,6 +34,7 @@ jobs:
 
       - name: Configure DVC with Google Drive
         run: |
+          dvc init
           dvc remote modify myremote gdrive_client_id 66578438081-5ito7q7qg8e1igpc74t9jk0taune5ia4.apps.googleusercontent.com
           dvc remote modify myremote gdrive_client_secret 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
           dvc remote add -d remote_name gdrive://1jf41SolYpyZ275AVXH_7w4zhB2QzYVl_

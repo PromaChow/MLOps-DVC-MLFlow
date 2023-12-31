@@ -1,0 +1,10 @@
+name: model-training
+
+python: python_env.yaml
+
+entry_points:
+  main:
+    parameters:
+      learning_rate: {type: float, default: 0.1}
+      max_depth: {type: float, default: 3}
+    command: "python training.py {learning_rate} {max_depth}"

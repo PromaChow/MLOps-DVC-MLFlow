@@ -2,4 +2,3 @@
 FROM python:3.8-slim
 
 COPY kmeans_model.pkl .
-COPY testfile.txt .

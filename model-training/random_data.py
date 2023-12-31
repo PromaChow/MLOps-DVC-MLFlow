@@ -59,7 +59,7 @@ def generate_dummy_data(start_date, end_date, num_machines=5, num_sensors=3, fre
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
-        data_file_path = '../data/sensor_data.csv'
+        data_file_path = 'data/sensor_data.csv'
         # Define date range for dummy data
         start_date = datetime(2023, 1, 1)
         end_date = datetime(2023, 1, 10)
@@ -76,7 +76,7 @@ if __name__ == "__main__":
 
         generate_and_append_data(data_file_path)
     else:
-        data_file_path = '../data/test_sensor_data.csv'
+        data_file_path = 'data/test_sensor_data.csv'
         # Define date range for dummy data
         start_date = datetime(2023, 1, 1)
         end_date = datetime(2023, 1, 10)

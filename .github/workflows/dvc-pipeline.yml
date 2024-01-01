@@ -56,15 +56,15 @@ jobs:
         git pull
 
 
-    - name: Set Persistence
-      uses: actions/checkout@v2
-      with:
-        persist-credentials: false
+    # - name: Set Persistence
+    #   uses: actions/checkout@v2
+    #   with:
+    #     persist-credentials: false
 
-    - name: Set Token
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{secrets.MLOps}}
+    # - name: Set Token
+    #   uses: ad-m/github-push-action@master
+    #   with:
+    #     github_token: ${{secrets.MLOps}}
         
 
     - name: Set up Git
@@ -84,6 +84,6 @@ jobs:
         git log -n 1
         git diff --name-only HEAD^
 
-      # env:
-      #   GITHUB_TOKEN: ${{ secrets.MLOps }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

@@ -1,8 +1,14 @@
 name: DVC Pipeline
 
+
 on:
-  schedule:
-    - cron: '*/5 * * * *'
+  push:
+    branches:
+      - main
+
+# on:
+#   schedule:
+#     - cron: '*/5 * * * *'
 
 jobs:
   build:

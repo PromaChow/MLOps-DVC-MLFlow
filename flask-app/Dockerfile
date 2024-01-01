@@ -1,12 +1,13 @@
 # Use a base image with Python
-FROM python:3.8-slim-buster
+FROM python:3.11-alpine3.18 
 
 # Copy requirements and install dependencies
-COPY flask-app/requirements.txt .
-RUN pip install -r requirements.txt
 
 # Set the working directory
 WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
 # Copy the entire content from the source image
 COPY --from=abwqr/test-model:v1 . .
@@ -15,7 +16,7 @@ COPY . .
 EXPOSE 9000
 
 # Specify the command to run when the container starts
-# CMD ["python3", "flask-app/app/app.py"]
+CMD ["python3", "flask-app/app/app.py"]
 
 
 

@@ -4,8 +4,8 @@ on:
   push:
     paths:
       - 'data/**'
-    branches:
-      - main  # Adjust the branch name if needed
+    # branches:
+    #   - main  # Adjust the branch name if needed
 
 jobs:
   mlflow-job:

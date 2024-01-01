@@ -51,11 +51,6 @@ jobs:
         dvc add data/sensor_data.csv
         dvc push
 
-    - name: Set Persistence
-      uses: actions/checkout@v2
-      with:
-        persist-credentials: false
-
     - name: Set Token
       uses: ad-m/github-push-action@master
       with:
@@ -69,7 +64,12 @@ jobs:
     - name: Pull changes
       run: |
         git pull
-        
+
+    - name: Set Persistence
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+
     - name: Push changes
       run: |
         git add data

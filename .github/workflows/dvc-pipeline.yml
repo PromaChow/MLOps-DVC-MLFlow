@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:   
+      - '.github/**'
 
 # on:
 #   schedule:
@@ -59,6 +61,12 @@ jobs:
         git add data
         git commit -m "New data generated"
         git push
+    - name: Debug info
+      run: |
+        git status
+        git log -n 1
+        git diff --name-only HEAD^
+
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

@@ -15,7 +15,7 @@ COPY . .
 EXPOSE 9000
 
 # Specify the command to run when the container starts
-CMD ["python3", "app/app.py"]
+CMD ["python3", "flask-app/app/app.py"]
 
 
 

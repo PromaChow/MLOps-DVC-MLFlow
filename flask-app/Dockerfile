@@ -10,12 +10,12 @@ WORKDIR /app
 
 # Copy the entire content from the source image
 COPY --from=abwqr/test-model:v1 . .
-COPY flask-app/app.py .
+COPY flask-app/. .
 # Expose the necessary port
 EXPOSE 9000
 
 # Specify the command to run when the container starts
-CMD ["python3", "app.py"]
+CMD ["python3", "app/app.py"]
 
 
 

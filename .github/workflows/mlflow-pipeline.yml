@@ -2,10 +2,12 @@ name: MLflow Workflow
 
 on:
   push:
-    paths:
-      - 'data/**'
-    # branches:
-    #   - main  # Adjust the branch name if needed
+    paths-ignore: 
+      - '.github/**'
+    # paths:
+    #   - 'data/**'
+    branches:
+      - main  # Adjust the branch name if needed
 
 jobs:
   mlflow-job:

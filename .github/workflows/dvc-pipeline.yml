@@ -60,6 +60,14 @@ jobs:
       run: |
         git pull
         git add data
+        
+    - name: Set Token
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.MLOps}}
+        
+    - name: Push changes
+      run: |
         git commit -m "New data generated"
         git push
     - name: Debug info
@@ -69,5 +77,5 @@ jobs:
         git diff --name-only HEAD^
 
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.MLOps }}
 

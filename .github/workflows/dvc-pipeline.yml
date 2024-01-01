@@ -51,23 +51,20 @@ jobs:
         dvc add data/sensor_data.csv
         dvc push
 
-    - name: Set up Git
-      run: |
-        git config user.name "Your GitHub Username"
-        git config user.email "your.email@example.com"
-
     - name: Set Token
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{secrets.MLOps}}
-        persist-credentials: false
 
     - name: Set Persistence
       uses: actions/checkout@v2
       with:
         persist-credentials: false
 
-
+    - name: Set up Git
+      run: |
+        git config user.name "abwqr"
+        git config user.email "ab1502144@gmail.com"
     
     - name: Push changes back to the repository
       run: |

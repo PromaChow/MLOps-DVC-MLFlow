@@ -58,6 +58,7 @@ jobs:
     
     - name: Push changes back to the repository
       run: |
+        git pull
         git add data
         git commit -m "New data generated"
         git push

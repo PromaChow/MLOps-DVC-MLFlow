@@ -55,21 +55,22 @@ jobs:
       run: |
         git config user.name "Your GitHub Username"
         git config user.email "your.email@example.com"
+
+    - name: Set Token
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{secrets.MLOps}}
     
     - name: Push changes back to the repository
       run: |
         git pull
         git add data
         
-    - name: Set Token
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.MLOps}}
-        
     - name: Push changes
       run: |
         git commit -m "New data generated"
         git push
+        
     - name: Debug info
       run: |
         git status

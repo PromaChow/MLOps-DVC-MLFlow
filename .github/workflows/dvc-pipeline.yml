@@ -67,10 +67,10 @@ jobs:
         github_token: ${{secrets.MLOps}}
         
 
-    # - name: Set up Git
-    #   run: |
-    #       git config --global user.email "you@example.com"
-    #       git config --global user.name "Your Name"
+    - name: Set up Git
+      run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
 
     - name: Push changes
       run: |

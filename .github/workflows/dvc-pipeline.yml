@@ -49,6 +49,14 @@ jobs:
         cd ..
         dvc add data/sensor_data.csv
         dvc push
+
+    - name: Set up Git
+      run: |
+        git config user.name "Your GitHub Username"
+        git config user.email "your.email@example.com"
+    
+    - name: Push changes back to the repository
+      run: |
         git add .
         git commit -m "New data generated"
         git push

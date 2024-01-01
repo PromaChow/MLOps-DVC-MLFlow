@@ -2,8 +2,11 @@ name: MLflow Workflow
 
 on:
   push:
+    paths:
+      - 'flask-app/**'
+      - 'model-training/**'
     branches:
-      - main
+      - main  # Adjust the branch name if needed
 
 jobs:
   mlflow-job:

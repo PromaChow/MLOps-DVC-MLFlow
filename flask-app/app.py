@@ -1,34 +1,42 @@
+import pickle
 import joblib
-from sklearn.cluster import KMeans
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
 from flask import Flask, jsonify, request
 app = Flask(__name__)
 
-appointments = [
-  { 'id': "1",'doctor': "1", 'date': "21 Nov 2023", 'rating':"Good"  },
-  { 'id': "2",'doctor': "1", 'date': "22 Nov 2023", 'rating':"Bad"  },
-  { 'id': "3",'doctor': "2", 'date': "22 Nov 2023", 'rating':"Good"  },
-  { 'id': "4",'doctor': "1", 'date': "22 Nov 2023", 'rating':"Bad"  },
-  { 'id': "5",'doctor': "2", 'date': "22 Nov 2023", 'rating':"Good"  },
-]
 
 @app.route('/')
 def hello():
-  model_path = "kmeans_model.pkl"
-  loaded_model = joblib.load(model_path)
 
-  # Test data
-  test_data = [(3, 5), (8, 8), (1, 1)]
+  try:
+    model_path = "best_model.pkl"
+    loaded_model = joblib.load(model_path)
+  except FileNotFoundError:
+    model_path = "../model-training/best_model.pkl"
+    loaded_model = joblib.load(model_path)
 
-  # Make predictions using the loaded model
-  predictions = loaded_model.predict(test_data)
+  try:
+    encoder_path = 'label_encoder_machine.pkl'
+    with open(encoder_path, 'rb') as file:
+      label_encoder_machine = pickle.load(file)
+  except FileNotFoundError:
+    encoder_path = "../model-training/label_encoder_machine.pkl"
+    with open(encoder_path, 'rb') as file:
+      label_encoder_machine = pickle.load(file)  
+  
 
-  # Display the predictions
-  val = None
-  for i, prediction in enumerate(predictions):
-      print(f"Data point {i+1}: Predicted Cluster {prediction}")
-      val = prediction
-    # greeting = "Hello world!"
-  return val
+
+
+
+  new_data = pd.DataFrame({
+    'Machine_ID': [label_encoder_machine.transform(['Machine_1'])[0]],
+    'Reading': [105.0]
+})
+  prediction = loaded_model.predict(new_data[['Machine_ID', 'Reading']])
+
+
+  return str(prediction[0])
 
 # @app.route('/appointments', methods=["GET"])
 # def getAppointments():

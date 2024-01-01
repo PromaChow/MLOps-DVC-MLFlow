@@ -1,3 +1,4 @@
+import pickle
 import pandas as pd
 import mlflow
 from sklearn.metrics import silhouette_score
@@ -56,8 +57,12 @@ best_accuracy = 0
 best_model = None
 
 
-learning_rate = float(sys.argv[1]) if len(sys.argv) > 1 else 0.3
-max_depth = float(sys.argv[2]) if len(sys.argv) > 2 else 10
+# learning_rate = float(sys.argv[1]) if len(sys.argv) > 1 else 0.3
+# max_depth = float(sys.argv[2]) if len(sys.argv) > 2 else 10
+
+learning_rate = 0.01
+max_depth = 3
+
 
 with mlflow.start_run():
     xgboost_model = xgb.XGBClassifier(
@@ -85,6 +90,21 @@ with mlflow.start_run():
 # Save the best model as a pickle file
 model_filename = 'best_model.pkl'
 joblib.dump(best_model, model_filename)
+
+with open('label_encoder_machine.pkl', 'wb') as file:
+    pickle.dump(label_encoder_machine, file)
+
+with open('label_encoder_sensor.pkl', 'wb') as file:
+    pickle.dump(label_encoder_sensor, file)
+
+
+# output = open('label_encoder_machine.pkl', 'wb')
+# pickle.dump(label_encoder_machine, output)
+# output.close()
+
+# output = open('label_encoder_sensor.pkl', 'wb')
+# pickle.dump(label_encoder_sensor, output)
+# output.close()
 
 # test = joblib.load(model_filename)
 

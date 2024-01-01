@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: DVC Pipeline
 
 on:
   schedule:
@@ -41,7 +41,7 @@ jobs:
         cd model-training
         python random_data.py
         cd ..
-        dvc data/sensor_data.csv
+        dvc add data/sensor_data.csv
         dvc push
         git add .
         git commit -m "New data generated"

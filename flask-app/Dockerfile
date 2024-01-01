@@ -10,7 +10,7 @@ WORKDIR /app
 
 # Copy the entire content from the source image
 COPY --from=abwqr/test-model:v1 . .
-COPY flask-app/. .
+COPY flask-app/app.py .
 # Expose the necessary port
 EXPOSE 9000
 

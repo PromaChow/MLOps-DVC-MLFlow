@@ -61,6 +61,13 @@ jobs:
       with:
         github_token: ${{secrets.MLOps}}
         persist-credentials: false
+
+    - name: Set Persistence
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+
+
     
     - name: Push changes back to the repository
       run: |
@@ -78,6 +85,6 @@ jobs:
         git log -n 1
         git diff --name-only HEAD^
 
-      env:
-        GITHUB_TOKEN: ${{ secrets.MLOps }}
+      # env:
+      #   GITHUB_TOKEN: ${{ secrets.MLOps }}
 

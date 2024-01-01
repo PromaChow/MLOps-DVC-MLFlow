@@ -1,8 +1,13 @@
 name: DVC Pipeline
 
 on:
-  schedule:
-    - cron: '*/5 * * * *'
+  push:
+    branches:
+      - main
+
+# on:
+#   schedule:
+#     - cron: '*/5 * * * *'
 
 jobs:
   build:
@@ -51,7 +56,7 @@ jobs:
     
     - name: Push changes back to the repository
       run: |
-        git add .
+        git add data
         git commit -m "New data generated"
         git push
       env:

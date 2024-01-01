@@ -5,6 +5,7 @@ on:
     paths:
       - 'flask-app/**'
       - 'model-training/**'
+      - 'data/**'
     branches:
       - main  # Adjust the branch name if needed
 

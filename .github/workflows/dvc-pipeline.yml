@@ -1,0 +1,49 @@
+name: CI/CD Pipeline
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install DVC
+      run: |
+        pip install dvc dvc-gdrive 
+        dvc --version
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas
+
+    - name: Configure DVC with Google Drive
+      run: |
+        dvc remote modify myremote gdrive_use_service_account true
+        dvc remote modify myremote --local gdrive_service_account_json_file_path credentials.json
+    # - name: Add and Push Data to Google Drive
+    #   run: |
+    #     dvc add dummy_sensor_data.csv
+    #     dvc push
+
+    - name: Pull Data from Google Drive
+      run: |
+        dvc pull
+        cd model-training
+        python random_data.py
+        cd ..
+        dvc data/sensor_data.csv
+        dvc push
+        git add .
+        git commit -m "New data generated"
+        git push
+

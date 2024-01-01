@@ -6,7 +6,7 @@ COPY flask-app/requirements.txt .
 RUN pip install -r requirements.txt
 
 # Set the working directory
-WORKDIR /app
+# WORKDIR /app
 
 # Copy the entire content from the source image
 COPY --from=abwqr/test-model:v1 . .

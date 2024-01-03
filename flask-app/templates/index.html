@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Reading Input</title>
+    <script>
+        $(document).ready(function () {
+            $('form').submit(function (e) {
+                e.preventDefault(); // Prevent the default form submission
+    
+                var formData = $(this).serialize();
+    
+                $.ajax({
+                    type: 'POST',
+                    url: '/',
+                    data: formData,
+                    dataType: 'json',  // Expect JSON response
+                    success: function (data) {
+                        // Update the prediction div with the response
+                        $('.prediction').html('<h2>Prediction:</h2><p>' + data.prediction + '</p>');
+                    }
+                });
+            });
+        });
+    </script>
+   
+</head>
+<body>
+    <div class="container">
+        <h1>Reading Input</h1>
+        <form method="post">
+            <label for="reading">Reading:</label>
+            <input type="text" id="reading" name="reading" required>
+
+            <label for="machine_id">Machine ID:</label>
+            <select id="machine_id" name="machine_id" required>
+                {% for machine_number in range(1, 6) %}
+                    <option value="Machine_{{ machine_number }}">Machine {{ machine_number }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="prediction">
+            {% if prediction %}
+                <h2>Prediction:</h2>
+                <p>{{ prediction }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

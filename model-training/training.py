@@ -84,11 +84,10 @@ with mlflow.start_run():
         best_accuracy = accuracy_xgb
         best_model = xgboost_model
 
-# model_filename = 'best_model.pkl'
-# joblib.dump(best_model, model_filename)
 
 with open('label_encoder_machine.pkl', 'wb') as file:
     pickle.dump(label_encoder_machine, file)
 
 with open('label_encoder_sensor.pkl', 'wb') as file:
     pickle.dump(label_encoder_sensor, file)
+

@@ -65,7 +65,10 @@ jobs:
       - name: Run MLflow script
         run: |
           cd model-training
-          python training.py
+          python training.py 0.3 6
+          python training.py 0.3 8
+          python training.py 0.3 10
+          python select_best_model.py
           cd ..
       - name: Build the Model Docker image
         run: docker build . --file model-training/Dockerfile --tag abwqr/test-model:v1

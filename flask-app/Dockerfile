@@ -6,7 +6,7 @@ FROM python:3.11-alpine3.18
 # Set the working directory
 WORKDIR /app
 
-COPY requirements.txt .
+COPY flask-app/requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copy the entire content from the source image

@@ -1,5 +1,5 @@
 # Use a base image with Python
-FROM python:3.11-alpine3.18 
+FROM python:3.8-slim
 
 # Copy requirements and install dependencies
 

@@ -68,6 +68,8 @@ with mlflow.start_run():
     accuracy_xgb = accuracy_score(y_test, y_pred_xgb)
     
     mlflow.log_param('model', 'XGBoost')
+    mlflow.log_param('learning_rate', learning_rate)
+    mlflow.log_param('max_depth', max_depth)    
     mlflow.log_metric('accuracy', accuracy_xgb)
     mlflow.sklearn.log_model(xgboost_model, 'XGBoostModel')
     print("accuracy_xgb:",accuracy_xgb)

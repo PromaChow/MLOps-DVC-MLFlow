@@ -29,14 +29,21 @@ try:
 
         else:
             accuracy_history = json.load(file)
+            
+            if accuracy_history['accuracy'] <= best_accuracy:    
+                accuracy_history['accuracy'] = best_accuracy
+                print("No Model Drifting Detected")
+
+            else:
+                print("Model Drifting Detected")
 
 except FileNotFoundError:
     accuracy_history = {}
-
-
-else:
-    if accuracy_history['accuracy'] < best_accuracy:    
+    with open(json_filename, 'wb') as file:
+        accuracy_history = {}
         accuracy_history['accuracy'] = best_accuracy
+
+
 
 # Save updated JSON file
 with open(json_filename, 'w') as file:
